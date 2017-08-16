@@ -53,3 +53,9 @@ https://jsoup.org/download
 	
 * 연관검색어 크롤링
 http://partnerjun.tistory.com/51
+
+* Invalid character found in the request target. The valid characters are defined in RFC 7230 and RFC 3986
+- textarea에 입력된 일본어 문자를 서블릿으로 전송할 경우 발생하는 에러
+
+
+* div태그에 배치관련 스타일이 적용 된 상황에서 form태그를 사용하고 싶은 경우엔 div태그 안쪽에 form태그를 위치시켜야 한다.

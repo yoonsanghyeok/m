@@ -25,6 +25,8 @@ public class NHKService {
         Document doc;
 		try {
 			doc = Jsoup.connect(newsURL).get();
+			System.out.println("url : " + newsURL);
+			System.out.println("doc : " + doc);
 			String date = doc.select("header.module--header time").attr("datetime");
 			date = date.replace("T", " ");
 			System.out.println(date);
@@ -32,7 +34,7 @@ public class NHKService {
 			String summary = doc.select("div#news_textbody").html();
 			String more = doc.select("div#news_textmore").html();
 			String add = doc.select("div.news_add").html();
-
+			String jdate = doc.select("span#news_date").text()+" "+doc.select("span#news_time").text();
 			String root = "https://www3.nhk.or.jp/news/html/";
 			
 			String image_url = doc.select("img#news_image").attr("src");
@@ -46,6 +48,7 @@ public class NHKService {
 			newsData.put("more", more);
 			newsData.put("additional", add);
 			newsData.put("inputdate", date);
+			newsData.put("jdate", jdate);
 			newsData.put("video_url", video_url);
 			newsData.put("image_url", image_url);
 			System.out.println(video_url);
@@ -57,8 +60,12 @@ public class NHKService {
 		return repo.getArticleList();
 	}
 
-	public NHKarticle getOneArticle(int postno) {
-		return repo.getOneArticle(postno);
+	public NHKarticle getOneArticle(int arcno) {
+		return repo.getOneArticle(arcno);
+	}
+
+	public int updateArticle(NHKarticle article) {
+		return repo.updateArticle(article);
 	}
 
 }

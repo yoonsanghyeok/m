@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title>yoonspace</title>
 
     <!-- Bootstrap core CSS -->
     <link href="resources/mb/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,11 +21,19 @@
 
     <script src="resources/mb/vendor/jquery/jquery.min.js"></script>
     <script>
+    	/* $(function(){
+    		$("#btn_updateArticle").on('click',function(){
+    			var tango = $("#ta_tango").val();
+    			var bunkei = $("#ta_bunkei").val();
+    			var opinion = $("#ta_opinion").val();
+    			location.href = "updateArticle?arcno={article.arcno}&tango="+tango+"&bunkei="+bunkei+"&opinion="+opinion;
+    		})
+    	}) */
     </script>
     <style>
     .article_content{
     	position: relative;
-    	top: -250px;
+    	top: -500px;
     	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     	width: 750px;
     }
@@ -49,7 +57,28 @@
     
     div.col-md-4{
     	position: relative;
-    	left: 35px;	
+    	/* left: 35px;	 */
+    }
+    
+    .customList{
+    	list-style-type: none;
+    	font-family: 'ＭＳ Ｐゴシック', 'MS PGothic', 'メイリオ', Meiryo, sans-serif;
+    	font-weight: bolder;
+    	padding: 0;
+    	margin: 0;
+    }
+    
+    div.article_header{
+    	position: relative;
+    	left: -50px;
+    }
+    
+    ol.breadcrumb{
+    	float: none;
+    	font-weight: bolder;
+    	font-size: 1.5em;
+    	color: white;
+    	background-color: #cccccc;
     }
     </style>
     
@@ -64,9 +93,23 @@
 
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">NHK NEWS STUDY</h1>
-		<ol class="breadcrumb">
-            <li class="breadcrumb-item"><h2 class="article_title">${article.title}</h2></li>
+        <br>
+        <ol class="breadcrumb">
+            <!-- <li class="breadcrumb-item">
+                <a href="main">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Portfolio 3</li> -->
+            
+            <li class="breadcrumb-item"><a href="nhkstudy">News List</a></li>
+            <li class="breadcrumb-item">My Wordbook</li>
         </ol>
+        <br>
+        <div class="article_header">
+		<ul class="customlist">
+            <li class="customList"><h2 class="article_title">[ ${article.title} ]</h2></li>
+            <li class="customList">${article.jdate} 作成</li>
+        </ul>
+        </div>
 		<%-- <div class="article_title">
 			<h2>${article.title}</h2>
 		</div> --%>
@@ -88,13 +131,18 @@
             </div>
 
             <div class="col-md-4">
+			<form action="updateArticle" method="POST">
+			<input type="hidden" name="arcno" value="${article.arcno}">
                 <h3 class="my-3">知らない単語</h3>
-                <textarea rows="10" cols="50"></textarea>
-				<button class="btn-success" type="button">登録</button><br>
+                <textarea id="ta_tango" name="tango" rows="10" cols="50">${article.tango}</textarea>
                 <br><br>
                 <h3 class="my-3">知らない文型</h3>
-                <textarea rows="10" cols="50"></textarea>
-				<button class="btn-success" type="button">登録</button><br>
+                <textarea id="ta_bunkei" name="bunkei" rows="10" cols="50">${article.bunkei}</textarea>
+                <br><br>
+                <h3 class="my-3">コメント</h3>
+                <textarea id="ta_opinion" name="opinion" rows="10" cols="50">${article.opinion}</textarea>
+				<button id="btn_updateArticle" class="btn-success" type="submit">適用</button><br>
+			</form>
             </div>
 
         </div>

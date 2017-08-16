@@ -24,8 +24,12 @@ public class NHKRepository {
 		return sqlSession.getMapper(NHKDao.class).getArticleList();
 	}
 
-	public NHKarticle getOneArticle(int postno) {
-		return sqlSession.getMapper(NHKDao.class).getOneArticle(postno);
+	public NHKarticle getOneArticle(int arcno) {
+		return sqlSession.getMapper(NHKDao.class).getOneArticle(arcno);
+	}
+
+	public int updateArticle(NHKarticle article) {
+		return sqlSession.getMapper(NHKDao.class).updateArticle(article);
 	}
 
 }

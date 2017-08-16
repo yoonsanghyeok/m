@@ -18,6 +18,17 @@
     <!-- Custom styles for this template -->
     <link href="resources/mb/css/modern-business.css" rel="stylesheet">
 
+<style>
+	div.row{
+		position: relative;
+	}
+	
+	a.list-group-item{
+		color: white;
+		font-weight: bolder;
+		background-color: #98BAef;
+	}
+</style>
 </head>
 
 <body>
@@ -47,10 +58,11 @@
                     <a href="about.html" class="list-group-item">HTML</a>
                     <a href="services.html" class="list-group-item">CSS</a>
                     <a href="contact.html" class="list-group-item">R</a>
-                    <a href="contact.html" class="list-group-item">JSP/Servlet</a>
+                    <a href="githome" class="list-group-item">GIT</a>
                     <a href="portfolio-1-col.html" class="list-group-item">Javascript</a>
                     <a href="portfolio-2-col.html" class="list-group-item">jQuery</a>
-                    <a href="portfolio-3-col.html" class="list-group-item">Spring</a><!-- 
+                    <a href="portfolio-3-col.html" class="list-group-item">Spring</a>
+                    <a href="portfolio-3-col.html" class="list-group-item">JSP/Servlet</a><!-- 
                     <a href="portfolio-4-col.html" class="list-group-item">4 Column Portfolio</a>
                     <a href="portfolio-item.html" class="list-group-item">Single Portfolio Item</a>
                     <a href="blog-home-1.html" class="list-group-item">Blog Home 1</a>

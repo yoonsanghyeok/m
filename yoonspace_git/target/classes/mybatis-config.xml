@@ -6,7 +6,6 @@
 <configuration>
   <typeAliases>
 	<typeAlias type="com.myplace.yoonspace.vo.NHKarticle" alias="NHKarticle"/>
-	
   </typeAliases>
   
   <mappers>

@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.myplace.yoonspace.service.NHKService;
@@ -55,9 +56,15 @@ public class NHKcontroller {
 	}
 	
 	@RequestMapping("articleDetail")
-	public String articleDetail(int postno, Model model) {
-		NHKarticle article = service.getOneArticle(postno);
+	public String articleDetail(int arcno, Model model) {
+		NHKarticle article = service.getOneArticle(arcno);
 		model.addAttribute("article", article);
 		return "nhk/newsdetail";
+	}
+	
+	@RequestMapping(value="updateArticle", method=RequestMethod.POST)
+	public String updateArticle(NHKarticle article){
+		service.updateArticle(article);
+		return "redirect:articleDetail?arcno="+article.getArcno();
 	}
 }

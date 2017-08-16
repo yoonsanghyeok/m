@@ -10,4 +10,9 @@ public class ITController {
 	public String to_itmain() {
 		return "it/main";
 	}
+	
+	@RequestMapping("githome")
+	public String to_githome(){
+		return "it/githome";
+	}
 }

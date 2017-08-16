@@ -11,7 +11,9 @@ public interface NHKDao {
 
 	List<NHKarticle> getArticleList();
 
-	NHKarticle getOneArticle(int postno);
+	NHKarticle getOneArticle(int arcno);
+
+	int updateArticle(NHKarticle article);
 
 	
 }

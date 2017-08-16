@@ -4,23 +4,30 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myplace.yoonspace.dao.NHKDao">
 	<insert id="addArticle" parameterType="map">
-		INSERT INTO NHKarticle VALUES(
-			NHKarticle_seq.nextval, 
+		INSERT INTO NHK_article 
+		(arcno, title, inputdate, jdate, summary, more, additional, image_url, video_url)
+		VALUES(
+			NHK_article_seq.nextval, 
 			#{title}, 
 			to_date(#{inputdate}, 'YYYY-MM-DD HH24:MI'), 
+			#{jdate},
 			#{summary}, 
 			#{more}, 
 			#{additional}, 
 			#{image_url}, 
-			#{video_url})
+			#{video_url}
+		)
 	</insert>
 	
-	
 	<select id="getArticleList" resultType="NHKarticle">
-		SELECT * FROM NHKarticle
+		SELECT * FROM NHK_article ORDER BY inputdate desc
 	</select>
 	
 	<select id="getOneArticle" resultType="NHKarticle">
-		SELECT * FROM NHKarticle WHERE postno=#{postno}
+		SELECT * FROM NHK_article WHERE arcno=#{arcno}
 	</select>
+	
+	<update id="updateArticle" parameterType="NHKarticle">
+		UPDATE NHK_article SET tango=#{tango}, bunkei=#{bunkei}, opinion=#{opinion} WHERE arcno=#{arcno}
+	</update>
 </mapper>
